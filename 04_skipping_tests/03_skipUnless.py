@@ -1,4 +1,4 @@
-from datetime import date
+import sys
 import unittest
 
 
@@ -7,10 +7,10 @@ class TestClass(unittest.TestCase):
     def test_case_1(self):
         self.assertEqual('aws'.upper(), 'AWS')
 
-    @unittest.skipIf(date.today().day % 2 != 0, 'Skipping odd day ...')
+    @unittest.skipUnless(sys.platform.startswith('win'), 'Requires Windows.')
     def test_case_2(self):
         self.assertEqual('aws'.upper(), 'AWS')
 
-    @unittest.skipIf(date.today().day % 2 == 0, 'Skipping even day ...')
-    def test_case_3(self):
+    @unittest.skipUnless(sys.platform.startswith('linux'), 'Requires Linux.')
+    def test_case_2(self):
         self.assertEqual('aws'.upper(), 'AWS')
