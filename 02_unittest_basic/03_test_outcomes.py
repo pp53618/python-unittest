@@ -9,7 +9,7 @@ def area(widht, height):
         raise TypeError('The width and height must be of type int or float.')
 
     if not (widht > 0 and height > 0):
-        return ValueError('The width and height must be positive')
+        raise ValueError('The width and height must be positive')
 
     return widht * height
 
